@@ -2,12 +2,16 @@
 site: sandpaper::sandpaper_site
 ---
 
-This is a new lesson built with the [Melbourne Bioinformatics fork](https://github.com/melbournebioinformatics/workbench-template-rmd) of the [Carpentries Workbench](workbench).
+Taxonomic and functional profiling of shotgun metagenomics data with nf-core/taxprofiler and nf-core/funcprofiler, and import of the outputs into R with mia.
 
-For more information on Melbourne Bioinformatics, please see our [official page](mb-uom-page) and our [tutorial collection](mb-tutorials). If you would like to attend one of our workshops, please follow our [Eventbrite page](https://www.eventbrite.com.au/d/australia--melbourne/melbourne-bioinformatics/), where you can get notifications and register for upcoming workshops.
+Contributors: Claudio Díaz García, Thi Quynh Trang Nguyen
 
-[mb-uom-page]: https://mdhs.unimelb.edu.au/melbournebioinformatics
-[mb-tutorials]: https://melbournebioinformatics.github.io/MelBioInf_docs/
-[mb-eventbrite]: https://www.eventbrite.com.au/d/australia--melbourne/melbourne-bioinformatics/
-[workbench]: https://carpentries.github.io/sandpaper-docs
+::::::::::::::::::::::::::::::::::::::::::  prereq
 
+## Prerequisites
+
+- Basic Unix command line
+- Basic R
+- Setup completed before the workshop
+
+::::::::::::::::::::::::::::::::::::::::::::::::::

@@ -2,93 +2,68 @@
 title: Setup
 ---
 
-Please follow the steps below and install the required software **before** the scheduled workshop.
+Please complete these steps before the workshop. We use two computing environments:
 
-<!--
-FIXME: Setup instructions live in this document. Please specify the tools and
-the data sets the Learner needs to have installed.
+- A Nectar cloud instance (provided by the organisers) to run the nf-core pipelines.
+- Your laptop, to connect to Nectar via SSH and to analyse the outputs in R/RStudio.
 
-## Data Sets
+Software on the Nectar instance is pre-installed for workshop attendees.
 
-FIXME: place any data you want learners to use in `episodes/data` and then use
-       a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
-       link to it, replacing the example.com link.
-Download the [data zip file](https://example.com/FIXME) and unzip it to your Desktop
--->
-## RStudio Setup
+## Software overview
 
-We use RStudio for coding in R.
+Laptop:
 
-[Click here and follow the instructions](https://posit.co/download/rstudio-desktop/) to install RStudio Desktop in your system.
+- SSH client
+- R and RStudio Desktop
+- CRAN packages: readr, dplyr, tidyr, ggplot2, BiocManager
+- Bioconductor packages: SummarizedExperiment, TreeSummarizedExperiment, mia, miaViz, phyloseq
 
-::::::::::::::::: discussion
+Nectar instance:
+
+- Java
+- Nextflow
+- Apptainer/Singularity or Docker
+- nf-core tools (optional)
+- nf-core/taxprofiler
+- nf-core/funcprofiler
+
+## R and RStudio (laptop)
+
+- Install R from CRAN.
+- Install RStudio Desktop.
 
 ### R packages
 
-Most workshops using R will require the installation of specific packages. Make sure to check in advance with the workshop organisers what packages need to be installed. 
-
-You can install packages from CRAN using:
+Run in the RStudio console:
 
 ```r
-install.packages("package_name")
+# CRAN packages
+install.packages(c("readr", "dplyr", "tidyr", "ggplot2", "BiocManager"))
+
+# Bioconductor packages
+BiocManager::install(c(
+  "SummarizedExperiment",
+  "TreeSummarizedExperiment",
+  "mia",
+  "miaViz",
+  "phyloseq"
+))
 ```
 
-If your package is in a different R repository, such as Bioconductor or GitHub, you may need the [BiocManager](https://www.bioconductor.org/install/) or [devtools](https://devtools.r-lib.org/) packages to install them. To install BiocManager:
+## Data
 
-```r
-if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install()
-```
+- 5 simulated human gut metagenomes, Illumina paired-end, from Sun, Huang et al. (2021) Nature Methods: https://www.nature.com/articles/s41592-021-01141-3
+- Source: figshare project 79916, dataset Gut_sample: https://doi.org/10.6084/m9.figshare.12234947.v1
+- 10 FASTQ files (`Gut_sampleX.fq.gz`) and 2 ground-truth tables (`5_gut_taxonomic_abd.txt`, `5_gut_sequence_abd.txt`)
+- Total size about 6.5 GB
 
-For devtools, you can simply do:
+On the workshop instances the data are already in `~/mbite/data/raw/`.
 
-```r
-install.packages("devtools")
-```
+## Reference databases
 
-You can then install packages directly from GitHub with:
-
-```r
-devtools::install_github("username/reponame")
-```
-
-::::::::::::::::::::::::::::
-
-
-<!--
-READ HERE FOR OS-SPECIFIC INSTRUCTIONS
-
-Setup for different systems can be presented in dropdown menus via a `spoiler`
-tag. They will join to this discussion block, so you can give a general overview
-of the software used in this lesson here and fill out the individual operating
-systems (and potentially add more, e.g. online setup) in the solutions blocks.
--->
-
-<!--
-:::::::::::::::: spoiler
-
-### Windows
-
-Use PuTTY
-
-::::::::::::::::::::::::
-
-:::::::::::::::: spoiler
-
-### MacOS
-
-Use Terminal.app
-
-::::::::::::::::::::::::
-
-
-:::::::::::::::: spoiler
-
-### Linux
-
-Use Terminal
-
-::::::::::::::::::::::::
--->
-
+- Kraken2 Standard-8
+- MetaPhlAn mpa_vJun23_CHOCOPhlAnSGB_202403
+- mOTUs database
+- sylph GTDB database
+- HUMAnN: ChocoPhlAn, UniRef90, utility mapping
+- eggNOG v5

@@ -5,7 +5,7 @@
 # ensuring that the author list and other fields remain accurate.
 
 cff-version: 1.2.0
-title: FIXME
+title: Taxonomic and functional profiling from shotgun metagenomics data with nf-core
 message: >-
   Please cite this lesson using the information in this file
   when you refer to it in publications, and/or if you
@@ -13,10 +13,12 @@ message: >-
   training material.
 type: dataset
 authors:
-  - given-names: FIXME
-    family-names: FIXME
+  - given-names: Claudio
+    family-names: Díaz García
+  - given-names: Thi Quynh Trang
+    family-names: Nguyen
 abstract: >-
-  FIXME Replace this with a short abstract describing the
-  lesson, e.g. its target audience and main intended
-  learning objectives.
+  Taxonomic and functional profiling of shotgun metagenomics data
+  with nf-core/taxprofiler and nf-core/funcprofiler, and import of
+  the outputs into R with mia.
 license: CC-BY-4.0
