@@ -97,7 +97,7 @@ jobs:
         RENV_CONFIG_EXTERNAL_LIBRARIES: "/usr/local/lib/R/site-library"
       volumes:
         - ${{ github.workspace }}:/home/rstudio/lesson
-      options: --cpus 1
+      options: --cpus 4
     steps:
       - uses: actions/checkout@v6
 
@@ -114,6 +114,13 @@ jobs:
       - name: "Mark Repository as Safe"
         run: |
           git config --global --add safe.directory $(pwd)
+        shell: bash
+
+      - name: "Install extra system libraries (GSL) and allow longer renv installs"
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends libgsl-dev
+          echo 'options(renv.install.timeout = 5 * 3600)' >> "$(R RHOME)/etc/Rprofile.site"
         shell: bash
 
       - name: "Setup Lesson Dependencies"

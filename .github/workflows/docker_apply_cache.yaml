@@ -153,6 +153,13 @@ jobs:
           library(sandpaper)
         shell: Rscript {0}
 
+      - name: "Install extra system libraries (GSL) and allow longer renv installs"
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends libgsl-dev
+          echo 'options(renv.install.timeout = 5 * 3600)' >> "$(R RHOME)/etc/Rprofile.site"
+        shell: bash
+
       - name: "Setup Lesson Dependencies"
         run: |
           Rscript /home/rstudio/.workbench/setup_lesson_deps.R
